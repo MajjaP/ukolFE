@@ -1,10 +1,10 @@
 //@@viewOn:imports
-import {createVisualComponent} from "uu5g05";
+import { createVisualComponent } from "uu5g05";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
 import ShoppingListsOverview from "../bricks/shopping-lists/shopping-lists-overview";
 import ListProvider from "../bricks/shopping-lists/list-provider";
-import {RouteController} from "uu_plus4u5g02-app";
+import { RouteController } from "uu_plus4u5g02-app";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -39,16 +39,17 @@ let ShoppingLists = createVisualComponent({
     //@@viewOn:interface
     //@@viewOff:interface
     //@@viewOn:render
-    return (<>
-      <RouteBar />
-      <ListProvider>
-        {(shoppingListDataList) => (
-          <RouteController routeDataObject={shoppingListDataList}>
-            <ShoppingListsOverview shoppingListDataList={shoppingListDataList} />
-          </RouteController>
-        )}
-      </ListProvider>
-    </>)
+    return (
+      <>
+        <ListProvider>
+          {(shoppingListDataList) => (
+            <RouteController routeDataObject={shoppingListDataList}>
+              <ShoppingListsOverview shoppingListDataList={shoppingListDataList} />
+            </RouteController>
+          )}
+        </ListProvider>
+      </>
+    );
     //@@viewOff:render
   },
 });

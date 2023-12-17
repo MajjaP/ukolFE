@@ -7,21 +7,25 @@ import Plus4U5App from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import Home from "../routes/home.js";
 import UserProvider from "../bricks/users/user-provider";
+
+import ShoppingLists from "../routes/shopping-lists.js";
+
+import ShoppingListDetail from "../routes/shopping-list-detail.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
 const About = Utils.Component.lazy(() => import("../routes/about.js"));
 const InitAppWorkspace = Utils.Component.lazy(() => import("../routes/init-app-workspace.js"));
 const ControlPanel = Utils.Component.lazy(() => import("../routes/control-panel.js"));
-const ShoppingListDetail = Utils.Component.lazy(() => import("../routes/shopping-list-detail.js"));
-const ShoppingLists = Utils.Component.lazy(() => import("../routes/shopping-lists.js"));
+//const ShoppingListDetail = Utils.Component.lazy(() => import("../routes/shopping-list-detail.js"));
+//const ShoppingLists = Utils.Component.lazy(() => import("../routes/shopping-lists.js"));
 
 const ROUTE_MAP = {
-  "": { redirect: "shoppingLists" },
+  "": { redirect: "home" },
   home: (props) => <Home {...props} />,
   "sys/uuAppWorkspace/initUve": (props) => <InitAppWorkspace {...props} />,
   controlPanel: (props) => <ControlPanel {...props} />,
-  "shoppingListDetail": (props) => <ShoppingListDetail {...props} />,
+  shoppingListDetail: (props) => <ShoppingListDetail {...props} />,
   shoppingLists: (props) => <ShoppingLists {...props} />,
   "*": () => (
     <Uu5Elements.Text category="story" segment="heading" type="h1">
